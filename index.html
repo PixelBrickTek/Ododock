@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#075FEA">
+  <meta name="description" content="Ododock turns your own photos into living weather wallpapers with editable weather data, day and night layouts, depth effects, and Shortcuts support.">
+  <meta property="og:title" content="Ododock — Weather, composed for your wallpaper">
+  <meta property="og:description" content="Create a personal iPhone wallpaper that follows the weather, the sun, and the moon.">
+  <meta property="og:type" content="website">
+  <title>Ododock — Weather, composed for your wallpaper</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Ododock home">
+      <img class="app-icon" src="icon.png" alt="">
+      <span>Ododock</span>
+    </a>
+    <button class="menu-toggle" type="button" data-menu-toggle aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav data-site-nav aria-label="Main navigation">
+      <a href="#features">Features</a>
+      <a href="#how">How it works</a>
+      <a href="#privacy">Privacy</a>
+      <a class="nav-cta" href="https://www.icloud.com/shortcuts/7dc8e435f7864a5c9fa93e91ace01333" target="_blank" rel="noopener noreferrer">Get Shortcut</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy reveal">
+        <h1>Weather, composed<br><em>your way.</em></h1>
+        <p class="hero-text">Turn your favorite photo into a wallpaper that reflects the weather, sunlight, and the details you care about.</p>
+        <div class="hero-actions">
+          <a class="primary-button" href="https://www.icloud.com/shortcuts/7dc8e435f7864a5c9fa93e91ace01333" target="_blank" rel="noopener noreferrer">Get the Shortcut <span aria-hidden="true">↗</span></a>
+          <a class="secondary-button" href="#how">See how it works</a>
+        </div>
+        <p class="availability">Designed for iPhone · No account required</p>
+      </div>
+
+      <div class="hero-stage reveal" aria-label="Ododock weather wallpaper preview">
+        <div class="ambient-orb orb-one"></div>
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <div class="wallpaper-sky"></div>
+            <div class="sun"></div>
+            <div class="cloud cloud-back"></div>
+            <div class="wallpaper-mountain mountain-back"></div>
+            <div class="weather-readout">
+              <span class="weather-symbol">☀︎</span>
+              <strong>18°</strong>
+              <small>Feels like 17°</small>
+            </div>
+            <div class="forecast-chip">
+              <span>PARIS</span>
+              <span>H 22° &nbsp; L 13°</span>
+            </div>
+            <div class="rain-chart" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+            <div class="wallpaper-mountain mountain-front"></div>
+          </div>
+          <div class="phone-glow"></div>
+        </div>
+        <img class="floating-icon" src="icon.png" alt="Ododock app icon">
+      </div>
+    </section>
+
+    <section class="signal-strip" aria-label="Ododock highlights">
+      <span>Live local weather</span><i></i><span>Day &amp; night profiles</span><i></i><span>Editable layouts</span><i></i><span>Shortcut ready</span>
+    </section>
+
+    <section id="features" class="section">
+      <div class="section-heading reveal">
+        <p>Built around your wallpaper</p>
+        <h2>More atmosphere.<br>More useful detail.</h2>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card feature-wide feature-weather reveal">
+          <div class="feature-copy">
+            <span class="feature-number">01</span>
+            <h3>Dynamic Weather</h3>
+            <p>Rain, snow, fog, thunder, and changing skies are layered over your photo using the current weather—not a future forecast.</p>
+          </div>
+          <div class="weather-pills" aria-hidden="true">
+            <span>Rain</span><span>Snow</span><span>Fog</span><span>Thunder</span>
+          </div>
+        </article>
+
+        <article class="feature-card feature-daynight reveal">
+          <span class="feature-number">02</span>
+          <h3>One setup for day.<br>Another for night.</h3>
+          <p>Keep separate backgrounds and item layouts, then let sunrise and sunset decide which composition to render.</p>
+          <div class="day-night-control" aria-hidden="true"><span>☀︎ Day</span><span>☾ Night</span></div>
+        </article>
+
+        <article class="feature-card feature-orbit reveal">
+          <span class="feature-number">03</span>
+          <h3>Sun &amp; Moon</h3>
+          <p>The sun and moon move along an arc based on local sunrise, sunset, and the time of day.</p>
+          <div class="orbit-demo" aria-hidden="true"><i class="orbit-line"></i><b>☀︎</b><em>☾</em></div>
+        </article>
+
+        <article class="feature-card feature-depth reveal">
+          <div class="feature-copy">
+            <span class="feature-number">04</span>
+            <h3>Depth that feels natural</h3>
+            <p>Find the foreground in a photo so the sun or moon can appear behind a mountain, building, tree, or cloud.</p>
+          </div>
+          <div class="depth-preview" aria-hidden="true">
+            <div class="depth-photo"><img src="icon.png" alt=""></div>
+            <div class="depth-edge"></div>
+          </div>
+        </article>
+
+        <article class="feature-card feature-data reveal">
+          <span class="feature-number">05</span>
+          <h3>Your data, your layout</h3>
+          <p>Tap to edit. Long-press to move. Resize and align weather items without losing the look of the original photo.</p>
+          <ul class="data-cloud" aria-label="Available wallpaper items">
+            <li>Temperature</li><li>Feels like</li><li>UV</li><li>Rain graph</li><li>4-day forecast</li><li>Moon phase</li><li>Battery</li><li>Trends</li><li>Mini map</li><li>Memo</li>
+          </ul>
+        </article>
+
+        <article class="feature-card feature-resilient reveal">
+          <span class="feature-number">06</span>
+          <h3>Ready when the network isn't</h3>
+          <p>If fresh weather cannot be reached, Ododock keeps the last successful composition available for the next render.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="how" class="section workflow-section">
+      <div class="section-heading reveal">
+        <p>A wallpaper in three moves</p>
+        <h2>Choose. Compose. Apply.</h2>
+      </div>
+      <div class="workflow">
+        <article class="workflow-step reveal">
+          <span>1</span>
+          <div><h3>Choose your photo</h3><p>Frame it for your device and optionally find a foreground depth layer.</p></div>
+        </article>
+        <article class="workflow-step reveal">
+          <span>2</span>
+          <div><h3>Compose the details</h3><p>Select weather items, tune their style, and arrange separate day and night layouts.</p></div>
+        </article>
+        <article class="workflow-step reveal">
+          <span>3</span>
+          <div><h3>Apply with Shortcuts</h3><p>Run the Ododock shortcut to render your saved setup and use the result as wallpaper.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="privacy" class="privacy-callout section reveal">
+      <div>
+        <p>Private by design</p>
+        <h2>Your photos and layouts stay yours.</h2>
+      </div>
+      <div>
+        <p>No account. No advertising tracker. Backgrounds, depth layers, and layout settings are stored on your device. Shared setup files exclude your saved location and remove photo metadata.</p>
+        <a href="privacy.html">Read the Privacy Policy <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section class="shortcut-section section reveal">
+      <div class="shortcut-card">
+        <img src="icon.png" alt="Ododock app icon">
+        <div>
+          <p>One tap from your next wallpaper</p>
+          <h2>Bring your setup to life.</h2>
+        </div>
+        <a class="primary-button light-button" href="https://www.icloud.com/shortcuts/7dc8e435f7864a5c9fa93e91ace01333" target="_blank" rel="noopener noreferrer">Get the Shortcut <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="footer-brand" href="index.html"><img src="icon.png" alt=""><span>Ododock</span></a>
+    <span>© 2026 PixelBrick. All rights reserved.</span>
+    <div><a href="privacy.html">Privacy</a><a href="mailto:brick@pixelbricktek.com">Contact</a></div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('[data-menu-toggle]');
+    const nav = document.querySelector('[data-site-nav]');
+    toggle?.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      nav?.classList.toggle('is-open', !open);
+    });
+    nav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+      toggle?.setAttribute('aria-expanded', 'false');
+      nav?.classList.remove('is-open');
+    }));
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add('is-visible'));
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+  </script>
+</body>
+</html>
