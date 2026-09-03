@@ -13,7 +13,6 @@
 <body class="policy-body">
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="Ododock home">
-      <img class="app-icon" src="icon.png" alt="">
       <span>Ododock</span>
     </a>
     <button class="menu-toggle" type="button" data-menu-toggle aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -27,39 +26,23 @@
 
   <main class="policy-page">
     <section class="policy-hero reveal is-visible">
-      <p class="eyebrow"><span></span> Ododock</p>
       <h1>Privacy Policy</h1>
       <p>Effective September 3, 2026</p>
     </section>
 
     <div class="policy-layout">
-      <aside class="policy-summary">
-        <p>At a glance</p>
-        <ul>
-          <li>No Ododock account</li>
-          <li>No advertising tracker</li>
-          <li>Photos stay on device</li>
-          <li>Location excluded from shared setups</li>
-        </ul>
-      </aside>
-
-      <article class="policy-card">
-        <section>
-          <h2>Overview</h2>
-          <p>Ododock is an iPhone app for composing weather-aware wallpapers from photos you choose. This policy explains what data the app uses, why it is used, where it is stored, and the choices available to you.</p>
-        </section>
-
+      <article class="policy-card" style="grid-column: 1 / -1;">
         <section>
           <h2>Information Ododock Uses</h2>
           <h3>Location</h3>
-          <p>With your permission, Ododock uses your device location while the app is in use to request local weather, air-quality data, a general place name, the default Trends country, and a map snapshot. The app may keep the last successful location locally so a Shortcut can continue to render the most recent setup when a fresh location is unavailable.</p>
+          <p>With your permission, Ododock uses your device location while the app is in use to request local weather, a general place name, the default Trends country, and a map snapshot. The app may keep the last successful location locally so a Shortcut can continue to render the most recent setup when a fresh location is unavailable.</p>
           <p>You can deny or revoke location access in iOS Settings. Features that depend on local conditions may then be unavailable or may use the last successful on-device result.</p>
 
           <h3>Photos and depth layers</h3>
           <p>Photos you select, adjusted backgrounds, and generated foreground depth layers are processed and stored on your device. Ododock does not upload these images to a PixelBrick account or server.</p>
 
-          <h3>Weather and air quality</h3>
-          <p>To provide current conditions, forecasts, UV, AQI, PM2.5, and PM10, the app sends the coordinates needed for the request to third-party weather and air-quality services. These requests contain no Ododock app identifier, bundle identifier, device identifier, account identifier, or user identifier; the services may still receive ordinary network information such as the connecting IP address and requested coordinates.</p>
+          <h3>Weather</h3>
+          <p>To provide current conditions, forecasts, and UV information, Ododock uses Apple Weather through WeatherKit. The coordinates needed for the forecast are sent to Apple when weather data is requested.</p>
 
           <h3>Trends and maps</h3>
           <p>If you enable Trends, Ododock requests public trending topics from Google Trends for the country you choose or the country inferred from your current location. If you enable the mini map, Apple MapKit creates a map image around the current location. Recent results may be cached locally to improve reliability.</p>
@@ -110,7 +93,7 @@
   </main>
 
   <footer class="site-footer">
-    <a class="footer-brand" href="index.html"><img src="icon.png" alt=""><span>Ododock</span></a>
+    <a class="footer-brand" href="index.html"><span>Ododock</span></a>
     <span>© 2026 PixelBrick. All rights reserved.</span>
     <div><a href="index.html">Home</a><a href="mailto:brick@pixelbricktek.com">Contact</a></div>
   </footer>
