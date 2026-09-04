@@ -8,11 +8,13 @@
   <title>Privacy Policy — Ododock</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="icon.png">
-  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('has-js');</script>
+  <link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body class="policy-body">
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="Ododock home">
+      <img src="icon.png" alt="" width="40" height="40">
       <span>Ododock</span>
     </a>
     <button class="menu-toggle" type="button" data-menu-toggle aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -31,7 +33,7 @@
     </section>
 
     <div class="policy-layout">
-      <article class="policy-card" style="grid-column: 1 / -1;">
+      <article class="policy-card">
         <section>
           <h2>Information Ododock Uses</h2>
           <h3>Location</h3>
@@ -93,7 +95,7 @@
   </main>
 
   <footer class="site-footer">
-    <a class="footer-brand" href="index.html"><span>Ododock</span></a>
+    <a class="footer-brand" href="index.html"><img src="icon.png" alt="" width="32" height="32"><span>Ododock</span></a>
     <span>© 2026 PixelBrick. All rights reserved.</span>
     <div><a href="index.html">Home</a><a href="mailto:brick@pixelbricktek.com">Contact</a></div>
   </footer>
@@ -101,10 +103,19 @@
   <script>
     const toggle = document.querySelector('[data-menu-toggle]');
     const nav = document.querySelector('[data-site-nav]');
+    const closeMenu = () => {
+      toggle?.setAttribute('aria-expanded', 'false');
+      nav?.classList.remove('is-open');
+    };
     toggle?.addEventListener('click', () => {
       const open = toggle.getAttribute('aria-expanded') === 'true';
       toggle.setAttribute('aria-expanded', String(!open));
       nav?.classList.toggle('is-open', !open);
+    });
+    nav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', (event) => event.key === 'Escape' && closeMenu());
+    document.addEventListener('click', (event) => {
+      if (!nav?.contains(event.target) && !toggle?.contains(event.target)) closeMenu();
     });
   </script>
 </body>
