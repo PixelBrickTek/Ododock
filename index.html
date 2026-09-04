@@ -12,6 +12,83 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="icon.png">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .phone-frame {
+      width: min(284px, 100%);
+      height: auto;
+      padding: 6px;
+      border: 1px solid rgba(21, 48, 89, 0.14);
+      border-radius: 30px;
+      background: #fff;
+      box-shadow: 0 22px 55px rgba(21, 48, 89, 0.14);
+      transform: rotate(0.75deg);
+    }
+
+    .phone-frame::before,
+    .phone-glow {
+      display: none;
+    }
+
+    .phone-screen {
+      height: auto;
+      border-radius: 24px;
+      background: transparent;
+    }
+
+    .phone-screen > .app-screenshot {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 24px;
+    }
+
+    .screenshot-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      align-items: start;
+    }
+
+    .screenshot-frame {
+      margin: 0;
+      padding: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(21, 48, 89, 0.14);
+      border-radius: 32px;
+      background: #fff;
+      box-shadow: 0 22px 55px rgba(21, 48, 89, 0.13);
+    }
+
+    .screenshot-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .screenshot-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 700px) {
+      .screenshot-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .screenshot-frame {
+        width: min(100%, 360px);
+        margin-inline: auto;
+        border-radius: 28px;
+      }
+
+      .screenshot-frame img {
+        border-radius: 21px;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -42,23 +119,8 @@
       <div class="hero-stage reveal" aria-label="Ododock weather wallpaper preview">
         <div class="phone-frame">
           <div class="phone-screen">
-            <div class="wallpaper-sky"></div>
-            <div class="sun"></div>
-            <div class="cloud cloud-back"></div>
-            <div class="wallpaper-mountain mountain-back"></div>
-            <div class="weather-readout">
-              <span class="weather-symbol">☀︎</span>
-              <strong>18°</strong>
-              <small>Feels like 17°</small>
-            </div>
-            <div class="forecast-chip">
-              <span>PARIS</span>
-              <span>H 22° &nbsp; L 13°</span>
-            </div>
-            <div class="rain-chart" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-            <div class="wallpaper-mountain mountain-front"></div>
+            <img class="app-screenshot" src="ododock-clear-calendar.jpg" alt="Ododock clear-weather wallpaper with a monthly calendar" width="1179" height="2556" decoding="async" fetchpriority="high">
           </div>
-          <div class="phone-glow"></div>
         </div>
       </div>
     </section>
@@ -109,6 +171,20 @@
           <h3>Ready when the network isn't</h3>
           <p>If fresh weather cannot be reached, Ododock keeps the last successful composition available for the next render.</p>
         </article>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Ododock app screenshots">
+      <div class="screenshot-grid">
+        <figure class="screenshot-frame reveal">
+          <img src="ododock-rain-forecast.jpg" alt="Ododock rain wallpaper with an hourly precipitation graph" width="1179" height="2556" loading="lazy" decoding="async">
+        </figure>
+        <figure class="screenshot-frame reveal">
+          <img src="ododock-heavy-rain.jpg" alt="Ododock heavy-rain wallpaper with a precipitation chart" width="1179" height="2556" loading="lazy" decoding="async">
+        </figure>
+        <figure class="screenshot-frame reveal">
+          <img src="ododock-cloudy-layout.jpg" alt="Ododock cloudy-weather wallpaper with calendar, wind, pressure, and battery information" width="1179" height="2556" loading="lazy" decoding="async">
+        </figure>
       </div>
     </section>
 
