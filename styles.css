@@ -262,24 +262,19 @@ main {
 
 .phone-frame {
   width: min(302px, 72vw);
-  padding: 7px;
+  padding: 0;
   position: relative;
   z-index: 2;
   overflow: hidden;
-  border: 1px solid rgba(12, 34, 71, 0.16);
-  border-radius: 35px;
-  background: #fff;
-  box-shadow: var(--shadow-phone);
+  border: 0;
+  border-radius: 28px;
+  background: transparent;
+  box-shadow: 0 18px 46px rgba(18, 52, 105, 0.18);
   transform: rotate(-2deg) translateY(-1px);
 }
 
 .phone-frame::after {
-  content: "";
-  position: absolute;
-  inset: 7px;
-  pointer-events: none;
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  border-radius: 27px;
+  display: none;
 }
 
 .app-screenshot {
@@ -287,18 +282,6 @@ main {
   height: auto;
   display: block;
   border-radius: 28px;
-}
-
-.floating-icon {
-  width: 88px;
-  height: 88px;
-  position: absolute;
-  right: 1%;
-  bottom: 11%;
-  z-index: 3;
-  border-radius: 23px;
-  box-shadow: 0 24px 52px rgba(0, 68, 177, 0.28);
-  transform: rotate(7deg);
 }
 
 .section {
@@ -416,13 +399,12 @@ main {
 
 .weather-shot {
   margin: 0;
-  padding: 6px 6px 0;
+  padding: 0;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.38);
-  border-bottom: 0;
-  border-radius: 29px 29px 0 0;
-  background: rgba(255, 255, 255, 0.94);
-  box-shadow: 0 25px 54px rgba(0, 35, 101, 0.28);
+  border: 0;
+  border-radius: 23px 23px 0 0;
+  background: transparent;
+  box-shadow: 0 14px 34px rgba(0, 35, 101, 0.16);
 }
 
 .weather-shot img {
@@ -920,10 +902,6 @@ main {
     min-height: 620px;
   }
 
-  .floating-icon {
-    right: 17%;
-  }
-
   .feature-depth {
     grid-template-columns: 1fr;
     gap: 34px;
@@ -1047,14 +1025,6 @@ main {
     border-radius: 24px;
   }
 
-  .floating-icon {
-    width: 72px;
-    height: 72px;
-    right: 5%;
-    bottom: 10%;
-    border-radius: 19px;
-  }
-
   .feature-section {
     padding-top: 38px;
   }
@@ -1114,7 +1084,7 @@ main {
   }
 
   .weather-shot {
-    padding: 3px 3px 0;
+    padding: 0;
     border-radius: 15px 15px 0 0;
     scroll-snap-align: center;
   }
