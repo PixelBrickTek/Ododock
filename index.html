@@ -1,188 +1,482 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#075FEA">
-  <meta name="description" content="Ododock turns your own photos into living weather wallpapers with editable weather data, day and night layouts, depth effects, and Shortcuts support.">
-  <meta property="og:title" content="Ododock — Weather, composed for your wallpaper">
-  <meta property="og:description" content="Create a personal iPhone wallpaper that follows the weather, the sun, and the moon.">
-  <meta property="og:type" content="website">
-  <title>Ododock — Weather, composed for your wallpaper</title>
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.png">
-  <script>document.documentElement.classList.add('has-js');</script>
-  <link rel="stylesheet" href="styles.css?v=6">
-</head>
-<body>
-  <header class="site-header">
-    <a class="brand" href="index.html" aria-label="Ododock home">
-      <img src="icon.png" alt="" width="40" height="40">
-      <span>Ododock</span>
-    </a>
-    <button class="menu-toggle" type="button" data-menu-toggle aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-    <nav data-site-nav aria-label="Main navigation">
-      <a href="#features">Features</a>
-      <a href="#how">How it works</a>
-      <a href="privacy.html">Privacy</a>
-      <a class="nav-cta" href="https://www.icloud.com/shortcuts/7dc8e435f7864a5c9fa93e91ace01333" target="_blank" rel="noopener noreferrer">Get Shortcut</a>
-    </nav>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="hero-copy reveal">
-        <h1>Weather, composed<br><em>your way.</em></h1>
-        <p class="hero-text">Turn your favorite photo into a wallpaper that reflects the weather, sunlight, and the details you care about.</p>
-        <div class="hero-actions">
-          <a class="primary-button" href="https://www.icloud.com/shortcuts/7dc8e435f7864a5c9fa93e91ace01333" target="_blank" rel="noopener noreferrer">Get the Shortcut <span aria-hidden="true">↗</span></a>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#18241f" />
+    <meta
+      name="description"
+      content="Your photos. Today's weather. ODODOCK brings the two together in a personal iPhone wallpaper, with changing skies and the details that matter to you."
+    />
+    <meta property="og:title" content="ODODOCK — The weather. Your canvas." />
+    <meta
+      property="og:description"
+      content="Turn your favorite photograph into a living weather wallpaper."
+    />
+    <meta property="og:type" content="website" />
+    <title>ODODOCK — The weather. Your canvas.</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icon.png" />
+    <link rel="preload" href="assets/rain-poster.webp" as="image" />
+    <link rel="stylesheet" href="styles.css?v=10" />
+    <script src="site.js?v=8" defer=""></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header" data-header="">
+      <a class="brand" href="index.html" aria-label="ODODOCK home">ODODOCK</a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="#collection">Collection</a><a href="#features">The details</a
+        ><a href="#how">Make it yours</a>
+      </nav>
+      <a
+        class="nav-cta"
+        href="https://apps.apple.com/app/ododock/id680818762"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Get the app <span aria-hidden="true">↗</span></a
+      >
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+        data-menu-toggle=""
+      >
+        <span></span><span></span>
+      </button>
+      <nav
+        class="mobile-nav"
+        id="mobile-nav"
+        aria-label="Mobile navigation"
+        hidden=""
+      >
+        <a href="#collection">Collection</a><a href="#features">The details</a
+        ><a href="#how">Make it yours</a><a href="privacy.html">Privacy</a>
+      </nav>
+    </header>
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-film" aria-hidden="true">
+          <video
+            data-hero-video=""
+            muted=""
+            loop=""
+            playsinline=""
+            preload="none"
+            poster="assets/rain-poster.webp"
+            tabindex="-1"
+          >
+            <source data-src="assets/rain-film.mp4" type="video/mp4" />
+          </video>
         </div>
-      </div>
-
-      <div class="hero-stage reveal" aria-label="Ododock weather wallpaper preview">
-        <div class="phone-frame">
-          <img class="app-screenshot" src="ododock-clear-calendar.jpg" alt="Ododock clear-weather wallpaper with a monthly calendar" width="1179" height="2556" decoding="async" fetchpriority="high">
+        <div class="hero-shade"></div>
+        <div class="hero-composition">
+          <div class="hero-content">
+            <h1 id="hero-title">The weather.<br /><span>Your canvas.</span></h1>
+            <div class="hero-bottom-copy">
+              <p>
+                Your photos. Today's weather.<br />A little more life on your
+                screen.
+              </p>
+              <a class="text-link" href="#collection"
+                >Discover ODODOCK <span aria-hidden="true">↓</span></a
+              >
+            </div>
+          </div>
+          <figure class="hero-art">
+            <img
+              src="assets/alpine-small.webp"
+              srcset="assets/alpine-small.webp 540w, assets/alpine.webp 1080w"
+              sizes="(max-width: 760px) 52vw, (max-width: 1400px) 28vw, 350px"
+              width="1080"
+              height="2341"
+              alt="ODODOCK wallpaper showing weather and a calendar over an alpine lake"
+              fetchpriority="high"
+            />
+          </figure>
         </div>
-      </div>
-    </section>
+        <div class="hero-bottom">
+          <button
+            class="film-toggle"
+            data-film-toggle=""
+            type="button"
+            aria-label="Play background video"
+            hidden=""
+          >
+            <span data-film-symbol="" aria-hidden="true">▷</span
+            ><span data-film-label="">Play motion</span>
+          </button>
+        </div>
+      </section>
+      <section
+        id="collection"
+        class="collection section-pad"
+        aria-labelledby="collection-title"
+      >
+        <h2 id="collection-title">
+          A view worth<br /><span>coming back to.</span>
+        </h2>
+        <div class="print-grid">
+          <figure class="art-print print-sky">
+            <img
+              src="assets/clear.webp"
+              srcset="assets/clear-small.webp 540w, assets/clear.webp 1080w"
+              sizes="(max-width: 650px) 90vw, (max-width: 1460px) 29vw, 420px"
+              width="1080"
+              height="2341"
+              alt="A bright blue sky with current weather and a monthly calendar"
+              loading="lazy"
+            />
+          </figure>
+          <figure class="art-print print-alpine">
+            <img
+              src="assets/alpine-rain.webp"
+              srcset="
+                assets/alpine-rain-small.webp  540w,
+                assets/alpine-rain.webp       1080w
+              "
+              sizes="(max-width: 650px) 90vw, (max-width: 1460px) 29vw, 420px"
+              width="1080"
+              height="2341"
+              alt="Rain over an alpine lake with weather, calendar and wind information"
+              loading="lazy"
+            />
+          </figure>
+          <figure class="art-print print-night">
+            <img
+              src="assets/moon.webp"
+              srcset="assets/moon-small.webp 540w, assets/moon.webp 1080w"
+              sizes="(max-width: 650px) 90vw, (max-width: 1460px) 29vw, 420px"
+              width="1080"
+              height="2341"
+              alt="The moon in a quiet night sky with local weather and trending topics"
+              loading="lazy"
+            />
+          </figure>
+        </div>
+        <p class="collection-note">
+          Your favorite photograph is just the beginning.
+        </p>
+      </section>
 
-    <section id="features" class="section feature-section">
-      <div class="feature-grid">
-        <article class="feature-card feature-weather reveal">
-          <div class="feature-weather-head">
-            <div class="feature-copy">
-              <h3>Dynamic Weather</h3>
-              <p>Rain, snow, fog, thunder, and changing skies are layered over your photo using the current weather—not a future forecast.</p>
+      <section
+        id="features"
+        class="weather-study section-pad"
+        aria-labelledby="study-title"
+      >
+        <div class="study-atmosphere" aria-hidden="true">
+          <img src="assets/clear-small.webp" alt="" loading="lazy" />
+        </div>
+        <div class="study-copy">
+          <h2 id="study-title">
+            Same photo.<br />A change of<br /><span>atmosphere.</span>
+          </h2>
+          <p class="study-description">
+            Sunlight, a passing shower, a softer sky. ODODOCK layers the current
+            weather over your photograph, so the view changes with the world
+            outside.
+          </p>
+          <div
+            class="weather-tabs"
+            role="tablist"
+            aria-label="Preview a weather effect"
+          >
+            <button
+              id="tab-clear"
+              role="tab"
+              type="button"
+              aria-selected="true"
+              aria-controls="panel-clear"
+              data-weather="clear"
+            >
+              Clear
+            </button>
+            <button
+              id="tab-fog"
+              role="tab"
+              type="button"
+              aria-selected="false"
+              aria-controls="panel-fog"
+              data-weather="fog"
+              tabindex="-1"
+            >
+              Fog
+            </button>
+            <button
+              id="tab-rain"
+              role="tab"
+              type="button"
+              aria-selected="false"
+              aria-controls="panel-rain"
+              data-weather="rain"
+              tabindex="-1"
+            >
+              Rain
+            </button>
+            <button
+              id="tab-snow"
+              role="tab"
+              type="button"
+              aria-selected="false"
+              aria-controls="panel-snow"
+              data-weather="snow"
+              tabindex="-1"
+            >
+              Snow
+            </button>
+          </div>
+        </div>
+        <div class="study-stage">
+          <figure
+            id="panel-clear"
+            class="weather-panel"
+            role="tabpanel"
+            aria-labelledby="tab-clear"
+            tabindex="0"
+          >
+            <img
+              src="assets/clear.webp"
+              srcset="assets/clear-small.webp 540w, assets/clear.webp 1080w"
+              sizes="(max-width: 760px) 70vw, 29vw"
+              width="1080"
+              height="2341"
+              alt="Clear blue sky, sun, 18 degrees and a calendar in an ODODOCK wallpaper"
+              loading="lazy"
+            />
+          </figure>
+          <figure
+            id="panel-fog"
+            class="weather-panel"
+            role="tabpanel"
+            aria-labelledby="tab-fog"
+            tabindex="0"
+            hidden=""
+          >
+            <img
+              src="assets/fog.webp"
+              srcset="assets/fog-small.webp 540w, assets/fog.webp 1080w"
+              sizes="(max-width: 760px) 70vw, 29vw"
+              width="1080"
+              height="2341"
+              alt="The same sky softened by fog, with 18 degrees and a calendar"
+              loading="lazy"
+            />
+          </figure>
+          <figure
+            id="panel-rain"
+            class="weather-panel"
+            role="tabpanel"
+            aria-labelledby="tab-rain"
+            tabindex="0"
+            hidden=""
+          >
+            <img
+              src="assets/rain.webp"
+              srcset="assets/rain-small.webp 540w, assets/rain.webp 1080w"
+              sizes="(max-width: 760px) 70vw, 29vw"
+              width="1080"
+              height="2341"
+              alt="Raindrops over the same sky, with current weather and a precipitation graph"
+              loading="lazy"
+            />
+          </figure>
+          <figure
+            id="panel-snow"
+            class="weather-panel"
+            role="tabpanel"
+            aria-labelledby="tab-snow"
+            tabindex="0"
+            hidden=""
+          >
+            <img
+              src="assets/snow.webp"
+              srcset="assets/snow-small.webp 540w, assets/snow.webp 1080w"
+              sizes="(max-width: 760px) 70vw, 29vw"
+              width="1080"
+              height="2341"
+              alt="Falling snow over the same sky, with a temperature of zero degrees"
+              loading="lazy"
+            />
+          </figure>
+        </div>
+      </section>
+      <section
+        class="details-section section-pad"
+        aria-labelledby="details-title"
+      >
+        <div class="details-layout">
+          <figure class="detail-photo">
+            <img
+              src="assets/storm.webp"
+              srcset="assets/storm-small.webp 540w, assets/storm.webp 1080w"
+              sizes="(max-width: 760px) 72vw, 31vw"
+              width="1080"
+              height="2341"
+              alt="Moonlight and heavy rain with detailed hourly precipitation information"
+              loading="lazy"
+            />
+          </figure>
+          <div class="details-copy">
+            <h2 id="details-title">
+              Beautiful.<br />Right down to<br /><span>the details.</span>
+            </h2>
+            <div class="detail-list">
+              <details open="">
+                <summary>
+                  <span>From first light to late night</span
+                  ><span class="detail-plus" aria-hidden="true"></span>
+                </summary>
+                <p>
+                  Save a different photo and layout for day and night. Sunrise
+                  and sunset set the rhythm, while the sun and moon follow their
+                  own arc across your screen.
+                </p>
+              </details>
+              <details>
+                <summary>
+                  <span>The information you choose</span
+                  ><span class="detail-plus" aria-hidden="true"></span>
+                </summary>
+                <p>
+                  Temperature, feels like, UV, rain graphs, a four-day forecast,
+                  moon phase and battery. Add Trends, a mini map or a memo. Keep
+                  the details that belong in your day.
+                </p>
+              </details>
+              <details>
+                <summary>
+                  <span>Composed by you</span
+                  ><span class="detail-plus" aria-hidden="true"></span>
+                </summary>
+                <p>
+                  Tap to edit. Long-press to move. Resize, align and style each
+                  item around your photograph. A foreground depth layer lets the
+                  sun or moon sit naturally behind a mountain, a tree or a
+                  building.
+                </p>
+              </details>
+              <details>
+                <summary>
+                  <span>A little continuity</span
+                  ><span class="detail-plus" aria-hidden="true"></span>
+                </summary>
+                <p>
+                  When fresh weather cannot be reached, ODODOCK keeps the last
+                  successful composition available for your next render.
+                </p>
+              </details>
             </div>
-            <div class="weather-pills" aria-hidden="true">
-              <span>Rain</span><span>Snow</span><span>Fog</span><span>Thunder</span>
-            </div>
           </div>
-          <div class="weather-gallery" aria-label="Ododock app screenshots">
-            <figure class="weather-shot">
-              <img src="ododock-rain-forecast.jpg" alt="Ododock rain wallpaper with an hourly precipitation graph" width="1179" height="2556" loading="lazy" decoding="async">
-            </figure>
-            <figure class="weather-shot">
-              <img src="ododock-heavy-rain.jpg" alt="Ododock heavy-rain wallpaper with a precipitation chart" width="1179" height="2556" loading="lazy" decoding="async">
-            </figure>
-            <figure class="weather-shot">
-              <img src="ododock-cloudy-layout.jpg" alt="Ododock cloudy-weather wallpaper with calendar, wind, pressure, and battery information" width="1179" height="2556" loading="lazy" decoding="async">
-            </figure>
+        </div>
+      </section>
+      <section
+        id="how"
+        class="how-section section-pad"
+        aria-labelledby="how-title"
+      >
+        <div class="section-top">
+          <img
+            class="app-icon"
+            src="assets/app-icon.webp"
+            alt="ODODOCK app icon"
+            width="56"
+            height="56"
+            loading="lazy"
+          />
+        </div>
+        <div class="how-heading">
+          <h2 id="how-title">
+            Your everyday.<br /><span>Anything but ordinary.</span>
+          </h2>
+          <a
+            class="dark-button"
+            href="https://apps.apple.com/app/ododock/id680818762"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Download on the App Store <span aria-hidden="true">↗</span></a
+          >
+        </div>
+        <div class="steps">
+          <article>
+            <span class="step-number">01</span>
+            <h3>Start with a photograph.</h3>
+            <p>
+              A place, a memory, a sky you love. Choose your image and frame it
+              for your iPhone.
+            </p>
+          </article>
+          <article>
+            <span class="step-number">02</span>
+            <h3>Find your composition.</h3>
+            <p>
+              Choose the details, set their style, and arrange your day and
+              night layouts.
+            </p>
+          </article>
+          <article>
+            <span class="step-number">03</span>
+            <h3>Let your screen change.</h3>
+            <p>
+              Run the ODODOCK shortcut to render your saved setup and apply it
+              as your wallpaper.
+            </p>
+          </article>
+        </div>
+        <div class="privacy-note">
+          <p>Your photographs stay yours.</p>
+          <div>
+            <a class="text-link" href="privacy.html"
+              >Our approach to privacy <span aria-hidden="true">↗</span></a
+            >
           </div>
-        </article>
-
-        <article class="feature-card feature-daynight reveal">
-          <div class="feature-copy">
-            <h3>One setup for day.<br>Another for night.</h3>
-            <p>Keep separate backgrounds and item layouts, then let sunrise and sunset decide which composition to render.</p>
-          </div>
-          <div class="day-night-control" aria-hidden="true"><span>☀︎ Day</span><span>☾ Night</span></div>
-        </article>
-
-        <article class="feature-card feature-orbit reveal">
-          <div class="feature-copy">
-            <h3>Sun &amp; Moon</h3>
-            <p>The sun and moon move along an arc based on local sunrise, sunset, and the time of day.</p>
-          </div>
-          <div class="orbit-demo" aria-hidden="true">
-            <svg class="orbit-line" viewBox="0 0 420 130" preserveAspectRatio="none" focusable="false">
-              <path d="M 8 116 C 108 30, 272 2, 412 99"></path>
-            </svg>
-            <b></b><em></em>
-          </div>
-        </article>
-
-        <article class="feature-card feature-depth reveal">
-          <div class="feature-copy">
-            <h3>Depth that feels natural</h3>
-            <p>Find the foreground in a photo so the sun or moon can appear behind a mountain, building, tree, or cloud.</p>
-          </div>
-          <div class="depth-preview" aria-hidden="true">
-            <div class="depth-photo depth-back"><img src="ododock-cloudy-layout.jpg" alt=""></div>
-            <div class="depth-photo depth-front"><img src="ododock-cloudy-layout.jpg" alt=""></div>
-          </div>
-        </article>
-
-        <article class="feature-card feature-data reveal">
-          <div class="feature-copy">
-            <h3>Your data, your layout</h3>
-            <p>Tap to edit. Long-press to move. Resize and align weather items without losing the look of the original photo.</p>
-          </div>
-          <ul class="data-cloud" aria-label="Available wallpaper items">
-            <li>Temperature</li><li>Feels like</li><li>UV</li><li>Rain graph</li><li>4-day forecast</li><li>Moon phase</li><li>Battery</li><li>Trends</li><li>Mini map</li><li>Memo</li>
-          </ul>
-        </article>
-
-        <article class="feature-card feature-resilient reveal">
-          <div class="feature-copy">
-            <h3>Ready when the network isn't</h3>
-            <p>If fresh weather cannot be reached, Ododock keeps the last successful composition available for the next render.</p>
-          </div>
-          <div class="signal-visual" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-        </article>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="footer-top">
+        <a href="privacy.html">Privacy Policy</a
+        ><a href="mailto:brick@pixelbricktek.com">Contact ↗</a
+        ><a href="#main">Back to top ↑</a>
       </div>
-    </section>
-
-    <section id="how" class="section workflow-section">
-      <div class="workflow">
-        <article class="workflow-step reveal">
-          <span>1</span>
-          <div><h3>Choose your photo</h3><p>Frame it for your device and optionally find a foreground depth layer.</p></div>
-        </article>
-        <article class="workflow-step reveal">
-          <span>2</span>
-          <div><h3>Compose the details</h3><p>Select weather items, tune their style, and arrange separate day and night layouts.</p></div>
-        </article>
-        <article class="workflow-step reveal">
-          <span>3</span>
-          <div><h3>Apply with Shortcuts</h3><p>Run the Ododock shortcut to render your saved setup and use the result as wallpaper.</p></div>
-        </article>
+      <p class="footer-wordmark" aria-hidden="true">ODODOCK</p>
+      <div class="footer-bottom">
+        <span>© 2026 PixelBrick. All rights reserved.</span>
       </div>
-    </section>
+    </footer>
 
-    <section id="privacy" class="privacy-callout section reveal">
-      <div><h2>Your photos and layouts stay yours.</h2></div>
-      <div>
-        <p>No account. No advertising tracker. Backgrounds, depth layers, and layout settings are stored on your device. Shared setup files exclude your saved location and remove photo metadata.</p>
-        <a href="privacy.html">Read the Privacy Policy <span aria-hidden="true">→</span></a>
+    <dialog class="art-viewer" aria-label="Wallpaper viewer">
+      <div class="viewer-toolbar">
+        <button
+          type="button"
+          data-viewer-close=""
+          aria-label="Close wallpaper viewer"
+        >
+          Close <span aria-hidden="true">×</span>
+        </button>
       </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <a class="footer-brand" href="index.html"><img src="icon.png" alt="" width="32" height="32"><span>Ododock</span></a>
-    <span>© 2026 PixelBrick. All rights reserved.</span>
-    <div><a href="privacy.html">Privacy</a><a href="mailto:brick@pixelbricktek.com">Contact</a></div>
-  </footer>
-
-  <script>
-    const toggle = document.querySelector('[data-menu-toggle]');
-    const nav = document.querySelector('[data-site-nav]');
-    const closeMenu = () => {
-      toggle?.setAttribute('aria-expanded', 'false');
-      nav?.classList.remove('is-open');
-    };
-    toggle?.addEventListener('click', () => {
-      const open = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', String(!open));
-      nav?.classList.toggle('is-open', !open);
-    });
-    nav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
-    document.addEventListener('keydown', (event) => event.key === 'Escape' && closeMenu());
-    document.addEventListener('click', (event) => {
-      if (!nav?.contains(event.target) && !toggle?.contains(event.target)) closeMenu();
-    });
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px' });
-    document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
-  </script>
-</body>
+      <figure>
+        <img
+          data-viewer-image=""
+          src="assets/clear.webp"
+          alt=""
+          width="1080"
+          height="2341"
+        />
+      </figure>
+      <div class="viewer-controls">
+        <button
+          type="button"
+          data-viewer-prev=""
+          aria-label="Previous wallpaper"
+        >
+          ← <span>Previous</span></button
+        ><span data-viewer-count="" aria-live="polite"></span
+        ><button type="button" data-viewer-next="" aria-label="Next wallpaper">
+          <span>Next</span> →
+        </button>
+      </div>
+    </dialog>
+  </body>
 </html>
