@@ -3,18 +3,18 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#f5f5f1" />
+    <meta name="theme-color" content="#075bea" />
     <meta name="description" content="Privacy Policy for ODODOCK." />
     <title>Privacy Policy — ODODOCK</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="icon.png" />
-    <link rel="stylesheet" href="styles.css?v=11" />
-    <script src="site.js?v=8" defer=""></script>
+    <link rel="stylesheet" href="styles.css?v=14" />
+    <script src="site.js?v=10" defer=""></script>
   </head>
   <body class="policy-body">
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header" data-header="">
-      <a class="brand" href="index.html" aria-label="ODODOCK home">ODODOCK</a>
+      <a class="brand" href="index.html" aria-label="ODODOCK home"><img src="assets/app-icon.webp" width="40" height="40" alt="" />ODODOCK</a>
       <nav class="desktop-nav" aria-label="Main navigation">
         <a href="index.html#collection">Collection</a
         ><a href="index.html#features">The details</a
@@ -52,7 +52,7 @@
     <main id="main" class="policy-page">
       <section class="policy-hero">
         <h1>Privacy Policy</h1>
-        <p>Effective September 3, 2026</p>
+        <p>Effective September 11, 2026</p>
       </section>
       <div class="policy-layout">
         <article class="policy-card">
@@ -61,8 +61,9 @@
             <h3>Location</h3>
             <p>
               With your permission, ODODOCK uses your device location while the
-              app is in use to request local weather, a general place name, the
-              default Trends country, and a map snapshot. The app may keep the
+              app is in use to provide local weather, air quality information, a
+              general place name, the default Trends country, and a map snapshot.
+              The app may keep the
               last successful location locally so a Shortcut can continue to
               render the most recent setup when a fresh location is unavailable.
             </p>
@@ -85,6 +86,16 @@
               ODODOCK uses Apple Weather through WeatherKit. The coordinates
               needed for the forecast are sent to Apple when weather data is
               requested.
+            </p>
+
+            <h3>Air quality</h3>
+            <p>
+              When air quality information is displayed, PM2.5 and PM10 estimates
+              are based on data from the
+              <a
+                href="https://ads.atmosphere.copernicus.eu/datasets/cams-global-atmospheric-composition-forecasts"
+                >Copernicus Atmosphere Monitoring Service (CAMS)</a
+              >. Location coordinates are used to select data for your area.
             </p>
 
             <h3>Trends and maps</h3>
@@ -128,11 +139,14 @@
           <section>
             <h2>Feedback</h2>
             <p>
-              If you choose “Send Feedback,” ODODOCK prepares a settings summary
-              in JSON format and one rendered wallpaper image for attachment to
-              an email. The iOS mail composer opens before anything is sent, so
-              you can review, edit, cancel, or send the message yourself. Email
-              is handled by your mail provider.
+              If you choose “Send Feedback,” ODODOCK prepares an encrypted JSON
+              file and one rendered wallpaper image for attachment to an email.
+              The JSON file includes your configured settings, device screen
+              resolution, operating system version, and PRO status information.
+              We use this data only to improve features and fix bugs.
+              The iOS mail composer opens before anything is sent, so
+              you can review or edit the message, remove attachments, cancel, or
+              send it yourself. Email is handled by your mail provider.
             </p>
           </section>
 
@@ -155,6 +169,11 @@
               app. You can also manage location and photo permissions in iOS
               Settings. Data sent to external providers is handled under each
               provider’s retention policy.
+            </p>
+            <p>
+              Feedback JSON attachments and any copies of their contents are
+              deleted when they are no longer needed for feature improvements
+              or bug fixes.
             </p>
           </section>
 

@@ -53,7 +53,7 @@
       : "Ⅱ";
   };
   const playFilm = async () => {
-    if (!video || document.hidden || !heroVisible) return;
+    if (!video || document.hidden || !heroVisible || document.querySelector(".art-viewer[open]")) return;
     const source = video.querySelector("source");
     if (!source.hasAttribute("src")) {
       source.src = source.dataset.src;
@@ -168,8 +168,35 @@
   if (viewer && typeof viewer.showModal === "function") {
     const viewerImage = viewer.querySelector("[data-viewer-image]");
     const viewerCount = viewer.querySelector("[data-viewer-count]");
+    const viewerFigure = viewerImage.closest("figure");
+    const thumbnails = document.createElement("div");
+    thumbnails.className = "viewer-thumbs";
+    thumbnails.setAttribute("role", "group");
+    thumbnails.setAttribute("aria-label", "Choose a wallpaper");
+    viewer.append(thumbnails);
     let activeWork = 0;
     let opener;
+    let suppressZoom = false;
+    const setZoom = (zoomed) => {
+      viewer.classList.toggle("is-zoomed", zoomed);
+      viewerImage.setAttribute("aria-pressed", String(zoomed));
+      viewerImage.setAttribute("aria-label", works[activeWork].alt + (zoomed ? ". Zoom out" : ". Zoom in"));
+      viewerFigure.scrollTop = 0;
+      viewerFigure.scrollLeft = 0;
+    };
+    viewerImage.tabIndex = 0;
+    viewerImage.setAttribute("role", "button");
+    const toggleZoom = () => {
+      if (suppressZoom) return;
+      setZoom(!viewer.classList.contains("is-zoomed"));
+    };
+    viewerImage.addEventListener("click", toggleZoom);
+    viewerImage.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        toggleZoom();
+      }
+    });
     const showWork = (index) => {
       activeWork = (index + works.length) % works.length;
       const work = works[activeWork];
@@ -177,7 +204,25 @@
       viewerImage.alt = work.alt;
       viewerCount.textContent =
         String(activeWork + 1).padStart(2, "0") + " / 08";
+      setZoom(false);
+      [...thumbnails.children].forEach((button, thumbnailIndex) => {
+        button.setAttribute("aria-current", String(thumbnailIndex === activeWork));
+      });
     };
+    works.forEach((work, index) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.setAttribute("aria-label", "View wallpaper: " + work.title);
+      const img = document.createElement("img");
+      img.src = "assets/" + work.key + "-small.webp";
+      img.alt = "";
+      img.width = 540;
+      img.height = 1171;
+      img.loading = "lazy";
+      button.append(img);
+      button.addEventListener("click", () => showWork(index));
+      thumbnails.append(button);
+    });
     document
       .querySelectorAll(
         ".art-print img, .hero-art img, .detail-photo img, .weather-panel img",
@@ -219,7 +264,7 @@
       .querySelector("[data-viewer-next]")
       .addEventListener("click", () => showWork(activeWork + 1));
     viewer.addEventListener("keydown", (event) => {
-      if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+      if (!viewer.classList.contains("is-zoomed") && (event.key === "ArrowLeft" || event.key === "ArrowRight")) {
         event.preventDefault();
         showWork(activeWork + (event.key === "ArrowRight" ? 1 : -1));
       }
@@ -229,6 +274,8 @@
     viewerImage.addEventListener(
       "touchstart",
       (event) => {
+        suppressZoom = false;
+        touchStartX = undefined;
         if (event.touches.length !== 1) return;
         touchStartX = event.touches[0].clientX;
         touchStartY = event.touches[0].clientY;
@@ -241,13 +288,15 @@
         if (touchStartX === undefined || !event.changedTouches.length) return;
         const dx = event.changedTouches[0].clientX - touchStartX;
         const dy = event.changedTouches[0].clientY - touchStartY;
-        if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy))
+        suppressZoom = Math.abs(dx) > 10 || Math.abs(dy) > 10;
+        if (!viewer.classList.contains("is-zoomed") && Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy))
           showWork(activeWork + (dx < 0 ? 1 : -1));
         touchStartX = undefined;
       },
       { passive: true },
     );
     viewer.addEventListener("close", () => {
+      setZoom(false);
       document.body.classList.remove("viewer-open");
       opener?.focus({ preventScroll: true });
       if (!manuallyPaused) playFilm();

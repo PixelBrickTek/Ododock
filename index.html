@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#18241f" />
+    <meta name="theme-color" content="#075bea" />
     <meta
       name="description"
       content="Your photos. Today's weather. ODODOCK brings the two together in a personal iPhone wallpaper, with changing skies and the details that matter to you."
@@ -18,13 +18,13 @@
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="icon.png" />
     <link rel="preload" href="assets/rain-poster.webp" as="image" />
-    <link rel="stylesheet" href="styles.css?v=11" />
-    <script src="site.js?v=8" defer=""></script>
+    <link rel="stylesheet" href="styles.css?v=14" />
+    <script src="site.js?v=10" defer=""></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header" data-header="">
-      <a class="brand" href="index.html" aria-label="ODODOCK home">ODODOCK</a>
+      <a class="brand" href="index.html" aria-label="ODODOCK home"><img src="assets/app-icon.webp" width="40" height="40" alt="" />ODODOCK</a>
       <nav class="desktop-nav" aria-label="Main navigation">
         <a href="#collection">Collection</a><a href="#features">The details</a
         ><a href="#how">Make it yours</a>
@@ -85,17 +85,22 @@
               >
             </div>
           </div>
+          <div class="hero-visual">
+            <figure class="hero-companion" aria-hidden="true">
+              <img src="assets/clear-small.webp" srcset="assets/clear-small.webp 540w, assets/clear.webp 1080w" sizes="(max-width: 760px) 35vw, 20vw" width="1080" height="2341" alt="" />
+            </figure>
           <figure class="hero-art">
             <img
               src="assets/alpine-small.webp"
               srcset="assets/alpine-small.webp 540w, assets/alpine.webp 1080w"
-              sizes="(max-width: 760px) 52vw, (max-width: 1400px) 28vw, 350px"
+              sizes="(max-width: 760px) 48vw, (max-width: 1400px) 26vw, 360px"
               width="1080"
               height="2341"
               alt="ODODOCK wallpaper showing weather and a calendar over an alpine lake"
               fetchpriority="high"
             />
           </figure>
+          </div>
         </div>
         <div class="hero-bottom">
           <button
