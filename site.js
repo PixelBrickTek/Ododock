@@ -123,6 +123,11 @@
   });
 
   const works = [
+{"key": "cloud", "title": "Clouds and blue sky", "alt": "Clouds and blue sky with weather and a calendar on an iPhone lock screen"},
+{"key": "forest", "title": "Forest and water", "alt": "A forest and lake with weather and a calendar on an iPhone lock screen"},
+{"key": "tide", "title": "Sunlight on the sea", "alt": "Sunlight on ocean waves with weather and a calendar on an iPhone lock screen"},
+{"key": "branch", "title": "Branches in the sky", "alt": "Delicate branches against a blue sky on an iPhone lock screen"},
+{"key": "starlight", "title": "Under the stars", "alt": "A starry mountain landscape with moon and weather on an iPhone lock screen"},
     {
       key: "clear",
       title: "A clear beginning",
@@ -202,8 +207,10 @@
       const work = works[activeWork];
       viewerImage.src = "assets/" + work.key + ".webp";
       viewerImage.alt = work.alt;
+      viewerImage.width = activeWork < 5 ? 1179 : 1080;
+      viewerImage.height = activeWork < 5 ? 2556 : 2341;
       viewerCount.textContent =
-        String(activeWork + 1).padStart(2, "0") + " / 08";
+        String(activeWork + 1).padStart(2, "0") + " / " + String(works.length).padStart(2, "0");
       setZoom(false);
       [...thumbnails.children].forEach((button, thumbnailIndex) => {
         button.setAttribute("aria-current", String(thumbnailIndex === activeWork));
@@ -225,7 +232,7 @@
     });
     document
       .querySelectorAll(
-        ".art-print img, .hero-art img, .detail-photo img, .weather-panel img",
+        ".art-print img, .hero-art img, .hero-companion img, .detail-photo img, .weather-panel img",
       )
       .forEach((img) => {
         const key = img
@@ -302,4 +309,112 @@
       if (!manuallyPaused) playFilm();
     });
   }
+})();
+
+// Scroll-linked depth follows native scrolling and sleeps between scroll events.
+(() => {
+  const preference = matchMedia('(prefers-reduced-motion: reduce)');
+  const header = document.querySelector('[data-header]');
+  const progress = document.querySelector('.reading-progress');
+  const main = document.querySelector('main');
+  const targets = [
+    ...document.querySelectorAll('.collection h2, .collection-note, .art-print, .study-copy, .study-stage, .detail-visual, .details-copy, .how-heading, .section-top, .steps article, .privacy-note, .policy-hero, .policy-card section'),
+  ];
+  let revealObserver;
+  if ('IntersectionObserver' in window && !preference.matches) {
+    revealObserver = new IntersectionObserver(entries => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        entry.target.classList.add('is-revealed');
+        entry.target.classList.remove('reveal-pending');
+        revealObserver.unobserve(entry.target);
+      }
+    }, { threshold: .07, rootMargin: '0px 0px -22px 0px' });
+    for (const element of targets) {
+      element.classList.add('reveal-pending', 'reveal-ready');
+      if (element.matches('.steps article')) {
+        element.style.setProperty('--reveal-delay', `${[...element.parentElement.children].indexOf(element) * 90}ms`);
+      }
+      revealObserver.observe(element);
+    }
+  }
+
+  const drifts = [
+    ['.hero-art', -65], ['.hero-companion', 42],
+    ['.print-cloud', 40], ['.print-forest', 8], ['.print-tide', -36],
+    ['.print-branch', 8], ['.print-starlight', 40],
+    ['.study-stage', -28], ['.detail-photo', -35],
+  ].flatMap(([selector, amount]) => {
+    const element = document.querySelector(selector);
+    return element ? [{ element, section: element.closest('section'), amount, value: 0, top: 0, height: 1 }] : [];
+  });
+  const links = [...document.querySelectorAll('.desktop-nav a[href^="#"]')];
+  const sections = links.map(link => ({ link, element: document.querySelector(link.getAttribute('href')), top: 0 }));
+  let viewportHeight = innerHeight;
+  let maxScroll = 1;
+  let frame = 0;
+  let needsMeasure = true;
+  const clamp = (n, min, max) => Math.min(max, Math.max(min, n));
+
+  function measure() {
+    viewportHeight = innerHeight;
+    maxScroll = Math.max(1, document.documentElement.scrollHeight - viewportHeight);
+    const positions = new Map();
+    for (const item of drifts) {
+      if (!positions.has(item.section)) {
+        const rect = item.section.getBoundingClientRect();
+        positions.set(item.section, { top: rect.top + scrollY, height: rect.height });
+      }
+      Object.assign(item, positions.get(item.section));
+    }
+    for (const item of sections) item.top = item.element.getBoundingClientRect().top + scrollY;
+    needsMeasure = false;
+  }
+  function update() {
+    frame = 0;
+    if (needsMeasure) measure();
+    const y = scrollY;
+    header?.classList.toggle('is-scrolled', y > 24);
+    progress?.style.setProperty('--progress', clamp(y / maxScroll, 0, 1).toFixed(4));
+    let active;
+    for (const item of sections) if (y + viewportHeight * .36 >= item.top) active = item;
+    for (const item of sections) item.link.classList.toggle('is-active', active === item);
+    let settling = false;
+    const smallScreen = innerWidth <= 760;
+    for (const item of drifts) {
+      if (y + viewportHeight < item.top - 100 || y > item.top + item.height + 100) continue;
+      const phase = clamp((y + viewportHeight * .5 - item.top - item.height * .5) / ((viewportHeight + item.height) * .5), -1, 1);
+      const target = preference.matches ? 0 : phase * item.amount * (smallScreen ? .35 : 1);
+      const difference = target - item.value;
+      item.value = Math.abs(difference) < .08 ? target : item.value + difference * .14;
+      item.element.style.setProperty('--drift', `${item.value.toFixed(2)}px`);
+      if (Math.abs(difference) > .08) settling = true;
+    }
+    if (settling && !document.hidden) frame = requestAnimationFrame(update);
+  }
+  function requestUpdate() { if (!frame && !document.hidden) frame = requestAnimationFrame(update); }
+  addEventListener('scroll', requestUpdate, { passive: true });
+  addEventListener('resize', () => {
+    needsMeasure = true;
+    if (innerWidth > 760) {
+      document.querySelector('#mobile-nav')?.setAttribute('hidden', '');
+      document.querySelector('[data-menu-toggle]')?.setAttribute('aria-expanded', 'false');
+      document.querySelector('[data-menu-toggle]')?.setAttribute('aria-label', 'Open menu');
+    }
+    requestUpdate();
+  }, { passive: true });
+  document.addEventListener('visibilitychange', requestUpdate);
+  if ('ResizeObserver' in window && main) new ResizeObserver(() => { needsMeasure = true; requestUpdate(); }).observe(main);
+  preference.addEventListener('change', () => {
+    if (preference.matches) {
+      revealObserver?.disconnect();
+      targets.forEach(element => {
+        element.classList.remove('reveal-pending');
+        element.classList.add('is-revealed');
+      });
+      drifts.forEach(item => { item.value = 0; item.element.style.setProperty('--drift','0px'); });
+    }
+    requestUpdate();
+  });
+  requestUpdate();
 })();
